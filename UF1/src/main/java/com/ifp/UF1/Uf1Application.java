@@ -8,8 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
 @Slf4j
+@SpringBootApplication
 public class Uf1Application implements CommandLineRunner{
 
 	@Autowired
@@ -19,6 +19,10 @@ public class Uf1Application implements CommandLineRunner{
 		SpringApplication.run(Uf1Application.class, args);
 	}
 
+	/**
+	 * Se muesta en los logs, una lista con la información de la Persona.
+	 * @throws Exception
+	 */
 	@Override
 	public void run(String... args) throws Exception {
 		log.info("PERSONA -> {}", personaPort.getAll().toString());
