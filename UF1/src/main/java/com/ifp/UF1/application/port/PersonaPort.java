@@ -5,6 +5,7 @@ import com.ifp.UF1.infrastructure.controller.dto.PersonaOutputDTO;
 
 import java.util.List;
 
+
 public interface PersonaPort {
     List<PersonaOutputDTO> getAll();
 }
