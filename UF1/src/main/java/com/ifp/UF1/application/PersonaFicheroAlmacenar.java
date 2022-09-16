@@ -20,11 +20,11 @@ public class PersonaFicheroAlmacenar implements PersonaFicheroAlmacenarPort {
     @Override
     public void almacenarFichero(PersonaOutputDTO personaOutputDTO) throws IOException {
 	File file = new File("Fichero.txt");
-	FileWriter fileWriter = new FileWriter(file);
+	FileWriter fileWriter = new FileWriter(file, true);
 
 	personaRepository.findAll().forEach(personaEntity -> {
 	    try {
-		fileWriter.write(personaOutputDTO.toString());
+		fileWriter.write(personaOutputDTO.toString() + System.lineSeparator());
 	    } catch (IOException e) {
 		throw new RuntimeException(e);
 	    }

@@ -1,1 +1,2 @@
-PersonaOutputDTO(id=1, nombre=Daniel, apellidos=Diez Miguel, ciudad=Villamediana de Iregua, nacionalidad=Spain, edad=22)
+PersonaOutputDTO(id=1, nombre=Rafael, apellidos=Castro Guerrero, ciudad=Madrid, nacionalidad=Spain, edad=20)
+PersonaOutputDTO(id=1, nombre=Arturo, apellidos=Costa Guerrero, ciudad=Barcelona, nacionalidad=Spain, edad=30)
