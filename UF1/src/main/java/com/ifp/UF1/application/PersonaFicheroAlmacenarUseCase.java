@@ -12,12 +12,22 @@ import com.ifp.UF1.application.port.PersonaFicheroAlmacenarPort;
 import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
 
+/**
+ * Esta clase devuelve true o false dependiendo de la respuesta del usuario para la creación de la Persona.
+ */
 @Service
-public class PersonaFicheroAlmacenar implements PersonaFicheroAlmacenarPort {
+public class PersonaFicheroAlmacenarUseCase implements PersonaFicheroAlmacenarPort {
 
     @Autowired
     PersonaRepository personaRepository;
 
+	/**
+	 * Este método utiliza una lambda para escribir en un fichero los datos con un salto de línea
+	 * por cada instancia encontrada siempre y cuando el usuario afirme con un si, de lo contrario se cierra.
+	 * @param personaOutputDTO
+	 * @return boolean
+	 * @throws IOException
+	 */
     @Override
     public boolean almacenarFichero(PersonaOutputDTO personaOutputDTO) throws IOException {
 	Scanner scanner = new Scanner(System.in);
@@ -33,7 +43,8 @@ public class PersonaFicheroAlmacenar implements PersonaFicheroAlmacenarPort {
 		    try {
 			fileWriter.write(personaOutputDTO.toString() + System.lineSeparator());
 			fileWriter.close();
-		    } catch (IOException e) {
+
+			} catch (IOException e) {
 			throw new RuntimeException(e);
 		    }
 		});

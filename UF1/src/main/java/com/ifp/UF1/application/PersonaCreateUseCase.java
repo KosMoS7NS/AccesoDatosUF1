@@ -18,22 +18,15 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
     PersonaRepository personaRepository;
 
     /**
-     * Se crea una lista de PersonaOuputDTO que se utilizara en la conversion de una
-     * entidad para tener la aplicacion más segura.
+     * Se realiza un Escaner para capturar la información del usuario.
      * <p>
-     * Se setean los datos en la clase persanaInputDTO. Este proceso seria mejor
-     * hacer con peticiones POST enviando un Body, pero no es el objetivo del
-     * ejercicio.
+     * Se instancia la clase PersonaInputDTO mediante un constructor con argumentos, en el cual se le pasa los atributos
+	 * anteriormente capturados.
      * <p>
-     * Se instancia PersonaOutputDTO, pasando como parametro un metodo que permite
-     * persistir la informacion. La informacion que guarda es de la PersonaEntity,
-     * cuyo parametro el PersonaInputDTO que tiene los datos seteados anteriormente.
-     * <p>
-     * Transformamos Persona en DTO para no exponer la entidad y cumplir la
-     * arquitectura hexgonal. No se utlizan controladores ya que no se realiza
-     * ninguna petición http.
+     * Transformamos PersonaInputDTO en Entidad y poder guardarla en el repositorio. A continuación, se convierte la
+	 * Entidad en un DTO de Salida mediante un Mapper, realizado en otro Caso de Uso.
      *
-     * @return Lista de PersonaOutputDTO
+     * @return List
      */
 
     @Override
