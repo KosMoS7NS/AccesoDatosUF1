@@ -6,6 +6,9 @@ import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+/**
+ * Esta interfaz realiza un mapeo de los DTOS a Entidades y estas a DTOS
+ */
 @Mapper
 public interface PersonaMapper {
 

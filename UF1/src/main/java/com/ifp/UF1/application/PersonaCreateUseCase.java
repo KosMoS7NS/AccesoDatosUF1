@@ -31,7 +31,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
 
     @Override
     public PersonaOutputDTO createPersona() {
-	Scanner scanner = new Scanner(System.in);
+	 Scanner scanner = new Scanner(System.in);
 
 	System.out.println("Intrdouce un ID: ");
 	Integer id = scanner.nextInt();
