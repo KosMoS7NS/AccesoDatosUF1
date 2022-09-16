@@ -1,3 +1,5 @@
 PersonaOutputDTO(id=1, nombre=Daniel, apellidos=Guerrero Baz, ciudad=Madrid, nacionalidad=Spain, edad=30)
 PersonaOutputDTO(id=2, nombre=Rafael, apellidos=Castro Guerrero, ciudad=Madrid, nacionalidad=Spain, edad=35)
 PersonaOutputDTO(id=3, nombre=Arturo, apellidos=Costa Guerrero, ciudad=Sevilla, nacionalidad=Spain, edad=25)
+PersonaOutputDTO(id=4, nombre=David, apellidos=Sierra Miguel, ciudad=Alicante, nacionalidad=Spain, edad=37)
+PersonaOutputDTO(id=5, nombre=David, apellidos=Sierra Miguel, ciudad=Alicante, nacionalidad=Spain, edad=28)

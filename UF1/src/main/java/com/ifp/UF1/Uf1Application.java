@@ -2,6 +2,7 @@ package com.ifp.UF1;
 
 import com.ifp.UF1.application.port.*;
 import com.ifp.UF1.configuration.PersonaStaticConfig;
+import com.ifp.UF1.infrastructure.controller.dto.input.PersonaInputDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,27 +34,30 @@ public class Uf1Application implements CommandLineRunner {
     PersonaMenu personaMenu;
 
     public static void main(String[] args) {
-	SpringApplication.run(Uf1Application.class, args);
+        SpringApplication.run(Uf1Application.class, args);
     }
 
     /**
      * Se muesta en los logs, una lista con la información de la Persona si el fichero no existe.
      * Se controla el metodo con una excepcion por si hay algun fallo en la introducción de datos.
-     * 
+     *
      * @throws Exception
      */
     @Override
     public void run(String... args) throws Exception {
-//	try {
-       switch (personaMenu.menu()) {
-           case 1 -> personaFicheroAlmacenar.almacenarFichero(personaCreatePort.createPersona());
-           case 3 -> System.out.println(personaFicheroLeer.leerFichero(PersonaStaticConfig.RUTA));
-           case 4 -> System.out.println(
-                   personaFicheroLeer.leerFicheroNombre(PersonaStaticConfig.RUTA, PersonaStaticConfig.NOMBRE));
-       }
+        try {
+            switch (personaMenu.menu()) {
+                case 1 -> personaFicheroAlmacenar.almacenarFichero(personaCreatePort.createPersona());
+                case 3 -> System.out.println(personaFicheroLeer.leerFichero(PersonaStaticConfig.RUTA));
+                case 4 -> System.out.println(
+                        personaFicheroLeer.leerFicheroNombre(
+                                PersonaStaticConfig.PERSONAOUTPUTDTO,
+                                PersonaStaticConfig.RUTA,
+                                PersonaStaticConfig.NOMBRE));
+            }
 
-//    } catch (Exception e) {
-//	    throw new Exception("Introduce correctamente los datos");
-//	}
+        } catch (Exception e) {
+            throw new Exception("Introduce correctamente los datos");
+        }
     }
 }
