@@ -1,5 +1,6 @@
 package com.ifp.UF1;
 
+import com.ifp.UF1.application.port.PersonaFicheroLeerPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,6 +30,9 @@ public class Uf1Application implements CommandLineRunner {
     @Autowired
     PersonaFicheroAlmacenarPort personaFicheroAlmacenarPort;
 
+    @Autowired
+    PersonaFicheroLeerPort personaFicheroLeerPort;
+
     public static void main(String[] args) {
 	SpringApplication.run(Uf1Application.class, args);
     }
@@ -42,9 +46,10 @@ public class Uf1Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 	try {
-	    if (personaFicheroAlmacenarPort.almacenarFichero(personaCreatePort.createPersona()))
+        if (personaFicheroAlmacenarPort.almacenarFichero(personaCreatePort.createPersona()))
             log.info("PERSONA -> {}", personaReadPort.getAll());
 
+        System.out.println(personaFicheroLeerPort.leerFichero("Fichero.txt"));
     } catch (Exception e) {
 	    throw new Exception("Introduce correctamente los datos");
 	}
