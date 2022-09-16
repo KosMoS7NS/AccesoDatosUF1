@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ifp.UF1.application.port.PersonaMapper;
 import com.ifp.UF1.application.port.PersonaReadPort;
-import com.ifp.UF1.infrastructure.controller.dto.PersonaOutputDTO;
+import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
-import org.springframework.stereotype.Service;
 
 @Service
 public class PersonaReadUseCase implements PersonaReadPort {

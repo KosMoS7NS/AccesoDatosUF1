@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.ifp.UF1.application.port.PersonaCreatePort;
 import com.ifp.UF1.application.port.PersonaMapper;
-import com.ifp.UF1.infrastructure.controller.dto.PersonaInputDTO;
-import com.ifp.UF1.infrastructure.controller.dto.PersonaOutputDTO;
+import com.ifp.UF1.infrastructure.controller.dto.input.PersonaInputDTO;
+import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
 
 @Service
@@ -35,8 +35,10 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
      */
 
     @Override
-    public PersonaOutputDTO createPersona() {
-	PersonaInputDTO personaInputDTO = new PersonaInputDTO(1, "Rafael", "Castillo Rojas", "Madrid", "Italia", 20);
+    public PersonaOutputDTO createPersona(Integer id, String nombre, String apellidos, String ciudad,
+	    String nacionalidad, int edad) {
+//	PersonaInputDTO personaInputDTO = new PersonaInputDTO(1, "Rafael", "Castillo Rojas", "Madrid", "Italia", 20);
+	PersonaInputDTO personaInputDTO = new PersonaInputDTO(id, nombre, apellidos, ciudad, nacionalidad, edad);
 	return PersonaMapper.INSTANCE
 		.personaOutputDto(personaRepository.save(PersonaMapper.INSTANCE.personaEntity(personaInputDTO)));
     }

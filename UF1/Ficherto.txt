@@ -1,0 +1,1 @@
+PersonaOutputDTO(id=1, nombre=Daniel, apellidos=Castro RObles, ciudad=Valla, nacionalidad=Nala, edad=2)

@@ -1,6 +1,5 @@
-package com.ifp.UF1.infrastructure.controller.dto;
+package com.ifp.UF1.infrastructure.controller.dto.input;
 
-import com.ifp.UF1.domain.PersonaEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonaOutputDTO {
+public class PersonaInputDTO {
     private Integer id;
     private String nombre;
     private String apellidos;
