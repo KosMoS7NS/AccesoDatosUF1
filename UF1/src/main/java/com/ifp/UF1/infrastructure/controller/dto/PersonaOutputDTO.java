@@ -1,9 +1,13 @@
 package com.ifp.UF1.infrastructure.controller.dto;
 
 import com.ifp.UF1.domain.PersonaEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PersonaOutputDTO {
     private Integer id;
     private String nombre;
@@ -11,14 +15,4 @@ public class PersonaOutputDTO {
     private String ciudad;
     private String nacionalidad;
     private int edad;
-
-    public PersonaOutputDTO(PersonaEntity personaEntity) {
-        if (personaEntity == null) return;
-        id = personaEntity.getId();
-        nombre = personaEntity.getNombre();
-        apellidos = personaEntity.getApellidos();
-        ciudad = personaEntity.getCiudad();
-        nacionalidad = personaEntity.getNacionalidad();
-        edad = personaEntity.getEdad();
-    }
 }

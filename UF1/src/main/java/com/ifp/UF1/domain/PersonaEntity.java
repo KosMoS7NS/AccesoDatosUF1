@@ -1,16 +1,18 @@
 package com.ifp.UF1.domain;
 
-import com.ifp.UF1.infrastructure.controller.dto.PersonaInputDTO;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 @Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class PersonaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +22,4 @@ public class PersonaEntity {
     private String ciudad;
     private String nacionalidad;
     private int edad;
-    public PersonaEntity(PersonaInputDTO personaInputDTO) {
-        if (personaInputDTO == null) return;
-        id = personaInputDTO.getId();
-        nombre = personaInputDTO.getNombre();
-        apellidos = personaInputDTO.getApellidos();
-        ciudad = personaInputDTO.getCiudad();
-        nacionalidad = personaInputDTO.getNacionalidad();
-        edad = personaInputDTO.getEdad();
-    }
 }

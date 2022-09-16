@@ -1,7 +1,7 @@
 package com.ifp.UF1;
 
-import com.ifp.UF1.application.port.PersonaPort;
-import com.ifp.UF1.infrastructure.controller.dto.PersonaInputDTO;
+import com.ifp.UF1.application.port.PersonaCreatePort;
+import com.ifp.UF1.application.port.PersonaReadPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,7 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Uf1Application implements CommandLineRunner{
 
 	@Autowired
-	PersonaPort personaPort;
+	PersonaCreatePort personaCreatePort;
+
+	@Autowired
+	PersonaReadPort personaReadPort;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Uf1Application.class, args);
@@ -25,6 +28,7 @@ public class Uf1Application implements CommandLineRunner{
 	 */
 	@Override
 	public void run(String... args) throws Exception {
-		log.info("PERSONA -> {}", personaPort.getAll().toString());
+		personaCreatePort.createPersona();
+		log.info("PERSONA -> {}", personaReadPort.getAll());
 	}
 }
