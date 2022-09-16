@@ -38,10 +38,15 @@ public class PersonaMenuUseCase implements PersonaMenu {
 
                         System.out.println("3) Leer todo el fichero");
                         System.out.println("4) Leer una persona");
-                        PersonaStaticConfig.NOMBRE = scanner.next();
 
                         respuesta = scanner.nextInt();
                         System.out.println("=====================================");
+
+                        if (respuesta == 4) {
+                            System.out.println("Introduce el nombre de la Persona: ");
+                            PersonaStaticConfig.NOMBRE = scanner.next();
+                        }
+
                         break;
 
                     } catch (Exception e) {

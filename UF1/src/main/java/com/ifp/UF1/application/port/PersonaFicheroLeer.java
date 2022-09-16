@@ -6,5 +6,7 @@ import java.util.List;
 public interface PersonaFicheroLeer {
     String leerFichero(String ruta) throws IOException;
 
-    List leerFicheroNombre(String ruta) throws IOException;
+//    List leerFicheroNombre(String ruta) throws IOException;
+
+    List leerFicheroNombre(String ruta, String nombre) throws IOException;
 }
