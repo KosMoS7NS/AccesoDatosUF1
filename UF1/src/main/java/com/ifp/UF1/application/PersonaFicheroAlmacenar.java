@@ -3,6 +3,7 @@ package com.ifp.UF1.application;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,19 +19,30 @@ public class PersonaFicheroAlmacenar implements PersonaFicheroAlmacenarPort {
     PersonaRepository personaRepository;
 
     @Override
-    public void almacenarFichero(PersonaOutputDTO personaOutputDTO) throws IOException {
+    public boolean almacenarFichero(PersonaOutputDTO personaOutputDTO) throws IOException {
+	Scanner scanner = new Scanner(System.in);
 	File file = new File("Fichero.txt");
 	FileWriter fileWriter = new FileWriter(file, true);
 
-	personaRepository.findAll().forEach(personaEntity -> {
-	    try {
-		fileWriter.write(personaOutputDTO.toString() + System.lineSeparator());
-	    } catch (IOException e) {
-		throw new RuntimeException(e);
-	    }
-	});
+	if (file.exists()) {
+	    System.out.println("El fichero ya existe, ¿quiere continuar? ");
+	    String respuesta = scanner.next();
 
-	fileWriter.close();
+	    if (respuesta.equalsIgnoreCase("si")) {
+		personaRepository.findAll().forEach(personaEntity -> {
+		    try {
+			fileWriter.write(personaOutputDTO.toString() + System.lineSeparator());
+			fileWriter.close();
+		    } catch (IOException e) {
+			throw new RuntimeException(e);
+		    }
+		});
+		return true;
+
+	    } else
+		fileWriter.close();
+	}
+	return false;
 
     }
 }

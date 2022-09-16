@@ -36,9 +36,10 @@ public class Uf1Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 	try {
-	    personaFicheroAlmacenarPort.almacenarFichero(personaCreatePort.createPersona());
-	    log.info("PERSONA -> {}", personaReadPort.getAll());
-	} catch (Exception e) {
+	    if (personaFicheroAlmacenarPort.almacenarFichero(personaCreatePort.createPersona()))
+            log.info("PERSONA -> {}", personaReadPort.getAll());
+
+    } catch (Exception e) {
 	    throw new Exception("Introduce correctamente los datos");
 	}
     }
