@@ -21,16 +21,26 @@ public class PersonaReadUseCase implements PersonaReadPort {
     @Autowired
     PersonaRepository personaRepository;
 
+    private final List<PersonaOutputDTO> personaOutputDTOList = new ArrayList<>();
+
     /**
      * Se utiliza una lambda para la conversion de una Entidad a un DTO por cada instancia encontrada
      * @return List
      */
     @Override
     public List<PersonaOutputDTO> getAll() {
-	List<PersonaOutputDTO> personaOutputDTOList = new ArrayList<>();
 	personaRepository.findAll().forEach(
 		personaEntity -> personaOutputDTOList.add(PersonaMapper.INSTANCE.personaOutputDto(personaEntity)));
 
 	return personaOutputDTOList;
+    }
+
+    @Override
+    public List<PersonaOutputDTO> getByName(String nombre) {
+        personaRepository.findByNombre(nombre).forEach(
+                personaEntity -> personaOutputDTOList.add(PersonaMapper.INSTANCE.personaOutputDto(personaEntity))
+        );
+
+        return personaOutputDTOList;
     }
 }

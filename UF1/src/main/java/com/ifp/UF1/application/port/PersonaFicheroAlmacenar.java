@@ -7,6 +7,6 @@ import java.io.IOException;
 /**
  * Puerto con el método de almacenar Personas en un fichero.txt
  */
-public interface PersonaFicheroAlmacenarPort {
+public interface PersonaFicheroAlmacenar {
     boolean almacenarFichero(PersonaOutputDTO personaOutputDTO) throws IOException;
 }

@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface PersonaReadPort {
     List<PersonaOutputDTO> getAll();
+
+    List<PersonaOutputDTO> getByName(String nombre);
 }
