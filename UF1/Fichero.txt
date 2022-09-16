@@ -1,0 +1,1 @@
+PersonaOutputDTO(id=1, nombre=Daniel, apellidos=Diez Miguel, ciudad=Villamediana de Iregua, nacionalidad=Spain, edad=22)

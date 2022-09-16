@@ -1,7 +1,5 @@
 package com.ifp.UF1;
 
-import java.util.Scanner;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -38,32 +36,10 @@ public class Uf1Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 	try {
-	    Scanner scanner = new Scanner(System.in);
-	    System.out.println("Intrdouce un ID: ");
-	    Integer id = scanner.nextInt();
-
-	    System.out.println("Intrdouce tu nombre: ");
-	    String nombre = scanner.next();
-
-	    scanner.nextLine();
-	    System.out.println("Intrdouce tus apellidos: ");
-	    String apellidos = scanner.nextLine();
-
-	    System.out.println("Intrdouce tu edad: ");
-	    int edad = scanner.nextInt();
-
-	    System.out.println("Intrdouce tu ciudad: ");
-	    String ciudad = scanner.next();
-
-	    System.out.println("Intrdouce tu nacionalidad: ");
-	    String nacionalidad = scanner.next();
-
-	    personaFicheroAlmacenarPort.almacenarFichero(
-		    personaCreatePort.createPersona(id, nombre, apellidos, ciudad, nacionalidad, edad));
+	    personaFicheroAlmacenarPort.almacenarFichero(personaCreatePort.createPersona());
+	    log.info("PERSONA -> {}", personaReadPort.getAll());
 	} catch (Exception e) {
 	    throw new Exception("Introduce correctamente los datos");
 	}
-
-	log.info("PERSONA -> {}", personaReadPort.getAll());
     }
 }

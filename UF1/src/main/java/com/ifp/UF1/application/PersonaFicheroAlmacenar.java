@@ -19,7 +19,7 @@ public class PersonaFicheroAlmacenar implements PersonaFicheroAlmacenarPort {
 
     @Override
     public void almacenarFichero(PersonaOutputDTO personaOutputDTO) throws IOException {
-	File file = new File("Ficherto.txt");
+	File file = new File("Fichero.txt");
 	FileWriter fileWriter = new FileWriter(file);
 
 	personaRepository.findAll().forEach(personaEntity -> {
@@ -31,11 +31,6 @@ public class PersonaFicheroAlmacenar implements PersonaFicheroAlmacenarPort {
 	});
 
 	fileWriter.close();
-
-//  personaEntity.toString()
-//	fileWriter.write(personaOutputDTO1.toString());
-//	fileWriter.write(personaOutputDTO2.toString());
-//	fileWriter.write(personaOutputDTO3.toString());
 
     }
 }

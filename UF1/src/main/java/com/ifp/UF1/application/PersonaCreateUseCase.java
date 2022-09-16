@@ -1,5 +1,7 @@
 package com.ifp.UF1.application;
 
+import java.util.Scanner;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,9 +37,29 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
      */
 
     @Override
-    public PersonaOutputDTO createPersona(Integer id, String nombre, String apellidos, String ciudad,
-	    String nacionalidad, int edad) {
-//	PersonaInputDTO personaInputDTO = new PersonaInputDTO(1, "Rafael", "Castillo Rojas", "Madrid", "Italia", 20);
+    public PersonaOutputDTO createPersona() {
+	Scanner scanner = new Scanner(System.in);
+
+	System.out.println("Intrdouce un ID: ");
+	Integer id = scanner.nextInt();
+
+	System.out.println("Intrdouce tu nombre: ");
+	String nombre = scanner.next();
+
+	scanner.nextLine();
+	System.out.println("Intrdouce tus apellidos: ");
+	String apellidos = scanner.nextLine();
+
+	System.out.println("Intrdouce tu edad: ");
+	int edad = scanner.nextInt();
+
+	scanner.nextLine();
+	System.out.println("Intrdouce tu ciudad: ");
+	String ciudad = scanner.nextLine();
+
+	System.out.println("Intrdouce tu nacionalidad: ");
+	String nacionalidad = scanner.next();
+
 	PersonaInputDTO personaInputDTO = new PersonaInputDTO(id, nombre, apellidos, ciudad, nacionalidad, edad);
 	return PersonaMapper.INSTANCE
 		.personaOutputDto(personaRepository.save(PersonaMapper.INSTANCE.personaEntity(personaInputDTO)));
