@@ -55,9 +55,9 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
         String nacionalidad = scanner.next();
 
         PersonaInputDTO personaInputDTO = new PersonaInputDTO(id, nombre, apellidos, ciudad, nacionalidad, edad);
-        PersonaStaticConfig.PERSONAOUTPUTDTO = PersonaMapper.INSTANCE.personaOutputDto(
+        return PersonaMapper.INSTANCE.personaOutputDto(
                 personaRepository.save(PersonaMapper.INSTANCE.personaEntity(personaInputDTO)
                 ));
-        return PersonaStaticConfig.PERSONAOUTPUTDTO;
+
     }
 }

@@ -34,7 +34,7 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeer {
     }
 
     @Override
-    public List leerFicheroNombre(PersonaOutputDTO personaOutputDTO, String ruta, String nombre) throws IOException {
+    public List leerFicheroNombre(String ruta, String nombre) throws IOException {
         FileReader fileReader = new FileReader(new File(ruta));
         bufferedReader = new BufferedReader(fileReader);
 
@@ -46,7 +46,7 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeer {
 
             if (PersonaStaticConfig.NOMBRE.equalsIgnoreCase(infoSplit[3])) {
                 totalLineasFichero += lineaTextoFichero + System.lineSeparator();
-                personaList.add(lineaTextoFichero);
+                personaList.add(lineaTextoFichero + System.lineSeparator());
 
             }
 

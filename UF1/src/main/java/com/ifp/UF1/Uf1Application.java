@@ -45,19 +45,16 @@ public class Uf1Application implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
-//        try {
+        try {
             switch (personaMenu.menu()) {
                 case 1 -> personaFicheroAlmacenar.almacenarFichero(personaCreatePort.createPersona());
                 case 3 -> System.out.println(personaFicheroLeer.leerFichero(PersonaStaticConfig.RUTA));
                 case 4 -> System.out.println(
-                        personaFicheroLeer.leerFicheroNombre(
-                                PersonaStaticConfig.PERSONAOUTPUTDTO,
-                                PersonaStaticConfig.RUTA,
-                                PersonaStaticConfig.NOMBRE));
+                        personaFicheroLeer.leerFicheroNombre(PersonaStaticConfig.RUTA, PersonaStaticConfig.NOMBRE));
             }
 
-//        } catch (Exception e) {
-//            throw new Exception("Introduce correctamente los datos");
-//        }
+        } catch (Exception e) {
+            throw new Exception("Introduce correctamente los datos");
+        }
     }
 }
