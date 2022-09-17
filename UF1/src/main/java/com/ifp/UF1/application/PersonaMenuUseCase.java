@@ -46,7 +46,6 @@ public class PersonaMenuUseCase implements PersonaMenu {
                             System.out.println("Introduce el nombre de la Persona: ");
                             PersonaStaticConfig.NOMBRE = scanner.next();
                         }
-
                         break;
 
                     } catch (Exception e) {
@@ -62,4 +61,4 @@ public class PersonaMenuUseCase implements PersonaMenu {
 
         return respuesta;
     }
-    }
+}

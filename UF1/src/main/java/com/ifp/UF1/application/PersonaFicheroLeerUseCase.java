@@ -41,9 +41,13 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeer {
         List personaList = new ArrayList<>();
 
         while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
-            if (PersonaStaticConfig.NOMBRE.equalsIgnoreCase(personaOutputDTO.getNombre())) {
+            totalLineasFichero += lineaTextoFichero + System.lineSeparator();
+            String[] infoSplit = lineaTextoFichero.split("=|,");
+
+            if (PersonaStaticConfig.NOMBRE.equalsIgnoreCase(infoSplit[3])) {
                 totalLineasFichero += lineaTextoFichero + System.lineSeparator();
-                personaList.add(totalLineasFichero);
+                personaList.add(lineaTextoFichero);
+
             }
 
         }
