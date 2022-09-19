@@ -16,7 +16,6 @@ import java.util.Scanner;
 public class PersonaMenuUseCase implements PersonaMenuPort {
 
     /**
-     *
      * @return int
      * @throws Exception
      */
@@ -53,10 +52,12 @@ public class PersonaMenuUseCase implements PersonaMenuPort {
                         respuesta = scanner.nextInt();
                         System.out.println("=====================================");
 
+                        if (respuesta == 3) return respuesta;
                         if (respuesta == 4) {
                             System.out.println("Introduce el nombre de la Persona: ");
                             PersonaStaticConfig.NOMBRE = scanner.next();
-                        }
+
+                        } else return 0;
                         break;
 
                     } catch (Exception e) {
