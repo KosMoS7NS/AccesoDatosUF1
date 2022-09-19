@@ -1,28 +1,35 @@
 package com.ifp.UF1.application;
 
 import com.ifp.UF1.application.port.PersonaFicheroLeer;
-import com.ifp.UF1.application.port.PersonaMapper;
 import com.ifp.UF1.configuration.PersonaStaticConfig;
-import com.ifp.UF1.domain.PersonaEntity;
-import com.ifp.UF1.infrastructure.controller.dto.input.PersonaInputDTO;
-import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
-import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Esta clase esta compuesta por dos métodos.
+ * <p>
+ * EL primer método leerFichero devuelve una lista con todas las personas del fichero.txt
+ * <p>
+ * El segundo método leerFicheroNombre devuelve una lista con los datos de una persona del fichero.txt
+ */
 @Service
 public class PersonaFicheroLeerUseCase implements PersonaFicheroLeer {
 
     private BufferedReader bufferedReader;
     private String lineaTextoFichero;
     private String totalLineasFichero = "";
+    private List personaList = new ArrayList<>();
 
+    /**
+     * @param ruta Ruta del fichero.txt
+     * @return List
+     * @throws IOException
+     */
     @Override
-    public String leerFichero(String ruta) throws IOException {
+    public List leerFichero(String ruta) throws IOException {
         try {
             FileReader fileReader = new FileReader(new File(ruta));
             bufferedReader = new BufferedReader(fileReader);
@@ -30,17 +37,24 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeer {
             while ((lineaTextoFichero = bufferedReader.readLine()) != null)
                 totalLineasFichero += lineaTextoFichero + System.lineSeparator();
 
+            personaList.add(totalLineasFichero);
             fileReader.close();
 
         } catch (Exception e) {
             throw new FileNotFoundException("No se ha encontrado la ruta del fichero");
         }
-        return totalLineasFichero;
+        return personaList;
     }
 
+    /**
+     *
+     * @param ruta Ruta del fichero.txt
+     * @param nombre Nombre de la persona
+     * @return List
+     * @throws IOException
+     */
     @Override
     public List leerFicheroNombre(String ruta, String nombre) throws IOException {
-        List personaList = new ArrayList<>();
 
         try {
             FileReader fileReader = new FileReader(new File(ruta));
