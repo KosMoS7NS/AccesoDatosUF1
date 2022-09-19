@@ -9,13 +9,11 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import com.ifp.UF1.configuration.PersonaStaticConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ifp.UF1.application.port.PersonaFicheroAlmacenarPort;
-import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
-import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
+import com.ifp.UF1.infrastructure.dto.output.PersonaOutputDTO;
 
 import static com.ifp.UF1.configuration.PersonaStaticConfig.*;
 
@@ -24,9 +22,6 @@ import static com.ifp.UF1.configuration.PersonaStaticConfig.*;
  */
 @Service
 public class PersonaFicheroAlmacenarUseCase implements PersonaFicheroAlmacenarPort {
-
-    @Autowired
-    PersonaRepository personaRepository;
 
     /**
      * Este método escribe la lista de Personas siempre y cuando el usuario afirme con un si, de lo contrario se cierra.

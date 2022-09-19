@@ -1,3 +1,3 @@
-PersonaOutputDTO(id=1, nombre=Daniel, apellidos=Guerrero Costa, ciudad=Madrid, nacionalidad=Spain, edad=22)
-PersonaOutputDTO(id=2, nombre=Arturo, apellidos=Herrero Guerrero, ciudad=Barcelona, nacionalidad=Spain, edad=34)
-PersonaOutputDTO(id=3, nombre=Arturo, apellidos=Gallardo Miguel, ciudad=Sevilla, nacionalidad=Spain, edad=32)
+PersonaOutputDTO(nombre=Daniel, apellidos=Guerrero Costa, ciudad=Madrid, nacionalidad=Spain, edad=22)
+PersonaOutputDTO(nombre=Arturo, apellidos=Herrero Guerrero, ciudad=Barcelona, nacionalidad=Spain, edad=34)
+PersonaOutputDTO(nombre=Arturo, apellidos=Gallardo Miguel, ciudad=Sevilla, nacionalidad=Spain, edad=32)

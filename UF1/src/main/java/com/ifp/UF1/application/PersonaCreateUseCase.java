@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ifp.UF1.application.port.PersonaCreatePort;
 import com.ifp.UF1.application.port.PersonaMapperPort;
-import com.ifp.UF1.infrastructure.controller.dto.input.PersonaInputDTO;
-import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
-import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
+import com.ifp.UF1.infrastructure.dto.input.PersonaInputDTO;
 
 import static com.ifp.UF1.configuration.PersonaStaticConfig.RUTA;
 
@@ -21,9 +19,6 @@ import static com.ifp.UF1.configuration.PersonaStaticConfig.RUTA;
  */
 @Service
 public class PersonaCreateUseCase implements PersonaCreatePort {
-
-    @Autowired
-    PersonaRepository personaRepository;
 
     /**
      * Se realiza un Scaner para capturar la información del usuario.
@@ -49,9 +44,9 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
             System.out.println("=====================================");
 
             do {
-                System.out.println("PERSONA " + i);
-                System.out.println("Introduce un ID: ");
-                Integer id = scanner.nextInt();
+//                System.out.println("PERSONA " + i);
+//                System.out.println("Introduce un ID: ");
+//                Integer id = scanner.nextInt();
 
                 System.out.println("Introduce tu nombre: ");
                 String nombre = scanner.next();
@@ -73,7 +68,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
 
 
                 personaEntityList.add(PersonaMapperPort.INSTANCE.personaEntity(
-                        new PersonaInputDTO(id, nombre, apellidos, ciudad, nacionalidad, edad)));
+                        new PersonaInputDTO(nombre, apellidos, ciudad, nacionalidad, edad)));
 
                 i += 1;
 

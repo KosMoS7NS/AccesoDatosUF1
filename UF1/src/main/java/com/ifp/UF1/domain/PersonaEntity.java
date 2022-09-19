@@ -14,12 +14,9 @@ import lombok.NoArgsConstructor;
  * con argumentos.
  */
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class PersonaEntity {
-    @Id
-    private Integer id;
     private String nombre;
     private String apellidos;
     private String ciudad;

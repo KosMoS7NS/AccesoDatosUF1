@@ -62,10 +62,11 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
             while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
                 String[] infoSplit = lineaTextoFichero.split("=");
 
-                if (infoSplit.length > 1 && NOMBRE.equalsIgnoreCase(infoSplit[2]
-                        .substring(0, infoSplit[2].length() - 11)))
+                if (infoSplit.length > 1 && NOMBRE.equalsIgnoreCase(infoSplit[1]
+                        .substring(0, infoSplit[1].length() - 11)))
                     personaList.add(System.lineSeparator() + lineaTextoFichero);
 
+                else throw new Exception("No se ha encontrado datos de " + nombre);
             }
             fileReader.close();
 
