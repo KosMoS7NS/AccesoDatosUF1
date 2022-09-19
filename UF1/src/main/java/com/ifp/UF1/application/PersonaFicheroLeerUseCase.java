@@ -1,6 +1,6 @@
 package com.ifp.UF1.application;
 
-import com.ifp.UF1.application.port.PersonaFicheroLeer;
+import com.ifp.UF1.application.port.PersonaFicheroLeerPort;
 import com.ifp.UF1.configuration.PersonaStaticConfig;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.List;
  * El segundo método leerFicheroNombre devuelve una lista con los datos de una persona del fichero.txt
  */
 @Service
-public class PersonaFicheroLeerUseCase implements PersonaFicheroLeer {
+public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
 
     private BufferedReader bufferedReader;
     private String lineaTextoFichero;

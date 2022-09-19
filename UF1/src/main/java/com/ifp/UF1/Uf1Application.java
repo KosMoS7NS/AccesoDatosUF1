@@ -2,7 +2,6 @@ package com.ifp.UF1;
 
 import com.ifp.UF1.application.port.*;
 import com.ifp.UF1.configuration.PersonaStaticConfig;
-import com.ifp.UF1.infrastructure.controller.dto.input.PersonaInputDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,10 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Scanner;
-
 /**
  * Este proyecto se realiza mediante una Arquitectura Hexagonal para no exponer las Entidades.
+ * <p>
+ * Las interfaces son referenciadas como ports.
+ * <p>
+ * Las clases con métodos son referencias como use case.
  * <p>
  * No se utilizan controladores con peticiones POST/GET ya que no es el objetivo de este ejercicio.
  */
@@ -25,13 +26,13 @@ public class Uf1Application implements CommandLineRunner {
     PersonaCreatePort personaCreatePort;
 
     @Autowired
-    PersonaFicheroAlmacenar personaFicheroAlmacenar;
+    PersonaFicheroAlmacenarPort personaFicheroAlmacenarPort;
 
     @Autowired
-    PersonaFicheroLeer personaFicheroLeer;
+    PersonaFicheroLeerPort personaFicheroLeerPort;
 
     @Autowired
-    PersonaMenu personaMenu;
+    PersonaMenuPort personaMenuPort;
 
     public static void main(String[] args) {
         SpringApplication.run(Uf1Application.class, args);
@@ -45,11 +46,11 @@ public class Uf1Application implements CommandLineRunner {
      */
     @Override
     public void run(String... args) throws Exception {
-        switch (personaMenu.menu()) {
-            case 1 -> personaFicheroAlmacenar.almacenarFichero(personaCreatePort.createPersona());
-            case 3 -> System.out.println(personaFicheroLeer.leerFichero(PersonaStaticConfig.RUTA));
+        switch (personaMenuPort.menu()) {
+            case 1 -> personaFicheroAlmacenarPort.almacenarFichero(personaCreatePort.createPersona());
+            case 3 -> System.out.println(personaFicheroLeerPort.leerFichero(PersonaStaticConfig.RUTA));
             case 4 -> System.out.println(
-                    personaFicheroLeer.leerFicheroNombre(PersonaStaticConfig.RUTA, PersonaStaticConfig.NOMBRE));
+                    personaFicheroLeerPort.leerFicheroNombre(PersonaStaticConfig.RUTA, PersonaStaticConfig.NOMBRE));
         }
     }
 }

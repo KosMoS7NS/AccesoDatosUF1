@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ifp.UF1.application.port.PersonaCreatePort;
-import com.ifp.UF1.application.port.PersonaMapper;
+import com.ifp.UF1.application.port.PersonaMapperPort;
 import com.ifp.UF1.infrastructure.controller.dto.input.PersonaInputDTO;
 import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
 
+/**
+ * Clase con el método de creación de las Personas.
+ */
 @Service
 public class PersonaCreateUseCase implements PersonaCreatePort {
 
@@ -59,8 +62,8 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
             String nacionalidad = scanner.next();
 
             PersonaInputDTO personaInputDTO = new PersonaInputDTO(id, nombre, apellidos, ciudad, nacionalidad, edad);
-            return PersonaMapper.INSTANCE.personaOutputDto(
-                    personaRepository.save(PersonaMapper.INSTANCE.personaEntity(personaInputDTO)
+            return PersonaMapperPort.INSTANCE.personaOutputDto(
+                    personaRepository.save(PersonaMapperPort.INSTANCE.personaEntity(personaInputDTO)
                     ));
 
         } catch (Exception e) {

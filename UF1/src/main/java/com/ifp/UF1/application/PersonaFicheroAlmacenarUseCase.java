@@ -9,7 +9,7 @@ import com.ifp.UF1.configuration.PersonaStaticConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ifp.UF1.application.port.PersonaFicheroAlmacenar;
+import com.ifp.UF1.application.port.PersonaFicheroAlmacenarPort;
 import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
 
@@ -17,7 +17,7 @@ import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
  * Esta clase devuelve true o false dependiendo de la respuesta del usuario para la creación de la Persona.
  */
 @Service
-public class PersonaFicheroAlmacenarUseCase implements PersonaFicheroAlmacenar {
+public class PersonaFicheroAlmacenarUseCase implements PersonaFicheroAlmacenarPort {
 
     @Autowired
     PersonaRepository personaRepository;
@@ -25,7 +25,7 @@ public class PersonaFicheroAlmacenarUseCase implements PersonaFicheroAlmacenar {
 	/**
 	 * Este método utiliza una lambda para escribir en un fichero los datos con un salto de línea
 	 * por cada instancia encontrada siempre y cuando el usuario afirme con un si, de lo contrario se cierra.
-	 * @param personaOutputDTO
+	 * @param personaOutputDTO Información de la Persona
 	 * @return boolean
 	 * @throws IOException
 	 */

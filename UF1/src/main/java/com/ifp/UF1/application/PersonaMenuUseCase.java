@@ -1,6 +1,6 @@
 package com.ifp.UF1.application;
 
-import com.ifp.UF1.application.port.PersonaMenu;
+import com.ifp.UF1.application.port.PersonaMenuPort;
 import com.ifp.UF1.configuration.PersonaStaticConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,8 +13,13 @@ import java.util.Scanner;
  */
 @Service
 @Slf4j
-public class PersonaMenuUseCase implements PersonaMenu {
+public class PersonaMenuUseCase implements PersonaMenuPort {
 
+    /**
+     *
+     * @return int
+     * @throws Exception
+     */
     @Override
     public int menu() throws Exception {
         Scanner scanner = new Scanner(System.in);

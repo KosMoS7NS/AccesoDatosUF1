@@ -7,12 +7,12 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 /**
- * Esta interfaz realiza un mapeo de los DTOS a Entidades y estas a DTOS
+ * Puerto con un mapeo de los DTOS a Entidades y estas a DTOS
  */
 @Mapper
-public interface PersonaMapper {
+public interface PersonaMapperPort {
 
-    PersonaMapper INSTANCE = Mappers.getMapper(PersonaMapper.class);
+    PersonaMapperPort INSTANCE = Mappers.getMapper(PersonaMapperPort.class);
 
     PersonaEntity personaEntity(PersonaInputDTO personaInputDTO);
 

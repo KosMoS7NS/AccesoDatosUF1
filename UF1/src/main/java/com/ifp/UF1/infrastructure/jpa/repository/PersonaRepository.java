@@ -7,9 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Este repositorio se utilizara para metodos de creación y listado de información de las Personas.
+ * Este repositorio se utilizara para metodos de creación de las Personas.
  */
 @Repository
 public interface PersonaRepository extends JpaRepository<PersonaEntity, Integer> {
-    List<PersonaEntity> findByNombre(String nombre);
 }
