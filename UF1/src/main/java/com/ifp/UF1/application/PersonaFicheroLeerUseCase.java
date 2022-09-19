@@ -8,6 +8,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.ifp.UF1.configuration.PersonaStaticConfig.*;
+
 /**
  * Esta clase esta compuesta por dos métodos.
  * <p>
@@ -62,14 +64,23 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
 
             while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
                 totalLineasFichero += lineaTextoFichero + System.lineSeparator();
-                String[] infoSplit = lineaTextoFichero.split("=|,");
+//                String[] infoSplit = lineaTextoFichero.split("=");
+                String[] infoSplit = lineaTextoFichero.split("\\(|=|,");
+//                String[] infoSplit = lineaTextoFichero.split("=|,");
 
-                if (PersonaStaticConfig.NOMBRE.equalsIgnoreCase(infoSplit[3])) {
+                if (NOMBRE.equalsIgnoreCase(infoSplit[4])) {
                     totalLineasFichero += lineaTextoFichero + System.lineSeparator();
-                    personaList.add(lineaTextoFichero + System.lineSeparator());
+                    personaList.add(lineaTextoFichero);
 
                 }
+                System.out.println("PERSONA 0: " + infoSplit[0]);
+                System.out.println("PERSONA 1: " + infoSplit[1]);
+                System.out.println("PERSONA 2: " + infoSplit[2]);
+                System.out.println("PERSONA 3: " + infoSplit[3]);
+                System.out.println("PERSONA 4: " + infoSplit[4]);
+
             }
+
 
             fileReader.close();
 

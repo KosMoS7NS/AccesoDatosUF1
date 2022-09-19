@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import lombok.extern.slf4j.Slf4j;
 
+import static com.ifp.UF1.configuration.PersonaStaticConfig.*;
+
 /**
  * Este proyecto se realiza mediante una Arquitectura Hexagonal para no exponer las Entidades.
  * <p>
@@ -48,9 +50,9 @@ public class Uf1Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
         switch (personaMenuPort.menu()) {
             case 1 -> personaFicheroAlmacenarPort.almacenarFichero(personaCreatePort.createPersona());
-            case 3 -> System.out.println(personaFicheroLeerPort.leerFichero(PersonaStaticConfig.RUTA));
+            case 3 -> System.out.println(personaFicheroLeerPort.leerFichero(RUTA));
             case 4 -> System.out.println(
-                    personaFicheroLeerPort.leerFicheroNombre(PersonaStaticConfig.RUTA, PersonaStaticConfig.NOMBRE));
+                    personaFicheroLeerPort.leerFicheroNombre(RUTA, NOMBRE));
         }
     }
 }

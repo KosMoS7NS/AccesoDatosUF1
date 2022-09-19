@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
+import static com.ifp.UF1.configuration.PersonaStaticConfig.NOMBRE;
+
 /**
  * Esta clase esta compuesta de un menú en el cual devuelve ciertos números que se utilizarán en el main para llamar
  * a otros métodos
@@ -27,7 +29,7 @@ public class PersonaMenuUseCase implements PersonaMenuPort {
         System.out.println("=====================================");
         System.out.println("Introduce una opción: ");
 
-        System.out.println("1) Escribir");
+        System.out.println("1) Escribir - 3 MAX");
         System.out.println("2) Leer");
 
         System.out.println("=====================================");
@@ -55,7 +57,7 @@ public class PersonaMenuUseCase implements PersonaMenuPort {
                         if (respuesta == 3) return respuesta;
                         if (respuesta == 4) {
                             System.out.println("Introduce el nombre de la Persona: ");
-                            PersonaStaticConfig.NOMBRE = scanner.next();
+                            NOMBRE = scanner.next();
 
                         } else return 0;
                         break;
