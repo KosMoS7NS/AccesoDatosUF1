@@ -66,7 +66,6 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
                         .substring(0, infoSplit[1].length() - 11)))
                     personaList.add(System.lineSeparator() + lineaTextoFichero);
 
-                else throw new Exception("No se ha encontrado datos de " + nombre);
             }
             fileReader.close();
 

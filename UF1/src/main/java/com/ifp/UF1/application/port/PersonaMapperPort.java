@@ -1,6 +1,6 @@
 package com.ifp.UF1.application.port;
 
-import com.ifp.UF1.domain.PersonaEntity;
+import com.ifp.UF1.domain.no_database.PersonaNoEntity;
 import com.ifp.UF1.infrastructure.dto.input.PersonaInputDTO;
 import com.ifp.UF1.infrastructure.dto.output.PersonaOutputDTO;
 import org.mapstruct.Mapper;
@@ -16,8 +16,8 @@ public interface PersonaMapperPort {
 
     PersonaMapperPort INSTANCE = Mappers.getMapper(PersonaMapperPort.class);
 
-    PersonaEntity personaEntity(PersonaInputDTO personaInputDTO);
+    PersonaNoEntity personaEntity(PersonaInputDTO personaInputDTO);
 
-    List<PersonaOutputDTO> personaOutputDtoList(List<PersonaEntity> personaEntityList);
+    List<PersonaOutputDTO> personaOutputDtoList(List<PersonaNoEntity> personaNoEntityList);
 
 }

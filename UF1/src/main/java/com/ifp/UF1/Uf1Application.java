@@ -14,6 +14,8 @@ import static com.ifp.UF1.configuration.PersonaStaticConfig.*;
 /**
  * Este proyecto se realiza mediante una Arquitectura Hexagonal para no exponer las Entidades.
  * <p>
+ * PersonaNoEntity es referenciada como Entity, para demostrar como se organizaría el proyecto con una BBDD
+ * <p>
  * Las interfaces son referenciadas como ports.
  * <p>
  * Las clases con métodos son referencias como use case.

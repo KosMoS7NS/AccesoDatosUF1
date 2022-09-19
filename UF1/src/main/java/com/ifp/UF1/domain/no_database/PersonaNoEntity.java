@@ -1,9 +1,4 @@
-package com.ifp.UF1.domain;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package com.ifp.UF1.domain.no_database;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonaEntity {
+public class PersonaNoEntity {
     private String nombre;
     private String apellidos;
     private String ciudad;

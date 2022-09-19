@@ -26,7 +26,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
      * Se instancia la clase PersonaInputDTO mediante un constructor con argumentos, en el cual se le pasa los atributos
      * anteriormente capturados.
      * <p>
-     * La lista de personaEntity guardara PersonaEntity con un mapeon de PersonaInputDTO. A continuación,
+     * La lista de personaEntity guardara PersonaNoEntity con un mapeon de PersonaInputDTO. A continuación,
      * se convierte la lista de personaEntity en un DTO de Salida mediante un Mapper, realizado en otro Caso de Uso.
      *
      * @return List
