@@ -18,8 +18,6 @@ public interface PersonaMapperPort {
 
     PersonaEntity personaEntity(PersonaInputDTO personaInputDTO);
 
-    PersonaOutputDTO personaOutputDto(PersonaEntity personaEntity);
-    List<PersonaEntity> personaEntityList(List<PersonaInputDTO> personaInputDTOList);
-    List<PersonaOutputDTO> personaOutputDtoListEntity(List<PersonaEntity> personaEntityList);
-    List<PersonaOutputDTO> personaOutputDtoList(List<PersonaInputDTO> personaInputDTOList);
+    List<PersonaOutputDTO> personaOutputDtoList(List<PersonaEntity> personaEntityList);
+
 }

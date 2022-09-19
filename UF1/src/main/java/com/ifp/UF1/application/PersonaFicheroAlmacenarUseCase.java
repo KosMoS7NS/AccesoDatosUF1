@@ -1,6 +1,7 @@
 package com.ifp.UF1.application;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class PersonaFicheroAlmacenarUseCase implements PersonaFicheroAlmacenarPo
     /**
      * Este método escribe la lista de Personas siempre y cuando el usuario afirme con un si, de lo contrario se cierra.
      *
-     * @param personaOutputDTO Información de la Persona
+     * @param personaOutputDTOList Información de la Persona
      * @return boolean
      * @throws IOException
      */
@@ -65,7 +66,7 @@ public class PersonaFicheroAlmacenarUseCase implements PersonaFicheroAlmacenarPo
             } else fileWriter.close();
         }
 
-        return false;
+        throw new FileNotFoundException("No se ha encontrado el fichero.txt");
 
     }
 }

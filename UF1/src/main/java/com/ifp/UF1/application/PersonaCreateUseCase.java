@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.ifp.UF1.configuration.PersonaStaticConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,8 +31,8 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
      * Se instancia la clase PersonaInputDTO mediante un constructor con argumentos, en el cual se le pasa los atributos
      * anteriormente capturados.
      * <p>
-     * Transformamos PersonaInputDTO en Entidad y poder guardarla en el repositorio. A continuación, se convierte la
-     * Entidad en un DTO de Salida mediante un Mapper, realizado en otro Caso de Uso.
+     * La lista de personaEntity guardara PersonaEntity con un mapeon de PersonaInputDTO. A continuación,
+     * se convierte la lista de personaEntity en un DTO de Salida mediante un Mapper, realizado en otro Caso de Uso.
      *
      * @return List
      */
@@ -42,7 +41,6 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
     public List createPersona() throws Exception {
         Scanner scanner = new Scanner(System.in);
         List personaEntityList = new ArrayList<>();
-        PersonaOutputDTO personaOutputDTO = new PersonaOutputDTO();
         int i = 1;
 
         try {
@@ -80,11 +78,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
                 i += 1;
 
             } while (i <= 3);
-            return PersonaMapperPort.INSTANCE.personaOutputDtoListEntity(personaEntityList);
-
-//            return PersonaMapperPort.INSTANCE.personaOutputDto(
-//                    personaRepository.save(PersonaMapperPort.INSTANCE.personaEntity(personaInputDTO)
-//                    ));
+            return PersonaMapperPort.INSTANCE.personaOutputDtoList(personaEntityList);
 
         } catch (Exception e) {
             throw new Exception("Introduce correctamente los datos");

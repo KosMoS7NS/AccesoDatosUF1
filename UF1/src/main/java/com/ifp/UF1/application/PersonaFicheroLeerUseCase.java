@@ -70,7 +70,7 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
             fileReader.close();
 
         } catch (Exception e) {
-            throw new FileNotFoundException("No se ha encontrado la ruta del fichero");
+            e.printStackTrace();
         }
 
         return personaList;
