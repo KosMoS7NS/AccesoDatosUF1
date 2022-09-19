@@ -1,5 +1,0 @@
-[PersonaOutputDTO(id=1, nombre=a, apellidos=a, ciudad=a, nacionalidad=a, edad=1)]
-[PersonaOutputDTO(id=2, nombre=b, apellidos=b, ciudad=b, nacionalidad=b, edad=2)]
-[PersonaOutputDTO(id=3, nombre=c, apellidos=c, ciudad=c, nacionalidad=c, edad=3)]
-[PersonaOutputDTO(id=4, nombre=d, apellidos=d, ciudad=d, nacionalidad=d, edad=4)]
-[PersonaOutputDTO(id=5, nombre=e, apellidos=e, ciudad=e, nacionalidad=e, edad=5)]

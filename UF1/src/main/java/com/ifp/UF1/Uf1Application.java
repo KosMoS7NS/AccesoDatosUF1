@@ -51,8 +51,7 @@ public class Uf1Application implements CommandLineRunner {
         switch (personaMenuPort.menu()) {
             case 1 -> personaFicheroAlmacenarPort.almacenarFichero(personaCreatePort.createPersona());
             case 3 -> System.out.println(personaFicheroLeerPort.leerFichero(RUTA));
-            case 4 -> System.out.println(
-                    personaFicheroLeerPort.leerFicheroNombre(RUTA, NOMBRE));
+            case 4 -> System.out.println(personaFicheroLeerPort.leerFicheroNombre(RUTA, NOMBRE));
         }
     }
 }

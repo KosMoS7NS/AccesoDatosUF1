@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.Scanner;
 
 import static com.ifp.UF1.configuration.PersonaStaticConfig.NOMBRE;
+import static com.ifp.UF1.configuration.PersonaStaticConfig.RUTA;
 
 /**
  * Esta clase esta compuesta de un menú en el cual devuelve ciertos números que se utilizarán en el main para llamar
@@ -44,7 +45,7 @@ public class PersonaMenuUseCase implements PersonaMenuPort {
                 case 2:
                     try {
                         System.out.println("Introduce el nombre del fichero: ");
-                        PersonaStaticConfig.RUTA = scanner.next();
+                        RUTA = scanner.next();
 
                         System.out.println("=====================================");
 

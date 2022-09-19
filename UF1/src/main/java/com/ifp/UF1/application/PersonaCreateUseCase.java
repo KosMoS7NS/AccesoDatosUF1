@@ -14,6 +14,8 @@ import com.ifp.UF1.infrastructure.controller.dto.input.PersonaInputDTO;
 import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.ifp.UF1.infrastructure.jpa.repository.PersonaRepository;
 
+import static com.ifp.UF1.configuration.PersonaStaticConfig.RUTA;
+
 
 /**
  * Clase con el método de creación de las Personas.
@@ -45,7 +47,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
 
         try {
             System.out.println("Introduce el nombre del fichero: ");
-            PersonaStaticConfig.RUTA = scanner.next();
+            RUTA = scanner.next();
             System.out.println("=====================================");
 
             do {

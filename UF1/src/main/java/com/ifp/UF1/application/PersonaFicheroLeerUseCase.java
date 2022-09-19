@@ -23,7 +23,6 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
     private final List personaList = new ArrayList<>();
     private BufferedReader bufferedReader;
     private String lineaTextoFichero;
-    private String totalLineasFichero = "";
 
     /**
      * @param ruta Ruta del fichero.txt
@@ -37,9 +36,8 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
             bufferedReader = new BufferedReader(fileReader);
 
             while ((lineaTextoFichero = bufferedReader.readLine()) != null)
-                totalLineasFichero += lineaTextoFichero + System.lineSeparator();
+                personaList.add(System.lineSeparator() + lineaTextoFichero);
 
-            personaList.add(totalLineasFichero);
             fileReader.close();
 
         } catch (Exception e) {
@@ -64,8 +62,10 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
             while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
                 String[] infoSplit = lineaTextoFichero.split("=");
 
-                if (infoSplit.length > 1 && NOMBRE.equalsIgnoreCase(infoSplit[2].substring(0, 1)))
-                    personaList.add(lineaTextoFichero + System.lineSeparator());
+                if (infoSplit.length > 1 && NOMBRE.equalsIgnoreCase(infoSplit[2]
+                        .substring(0, infoSplit[2].length() - 11)))
+                    personaList.add(System.lineSeparator() + lineaTextoFichero);
+
             }
             fileReader.close();
 
