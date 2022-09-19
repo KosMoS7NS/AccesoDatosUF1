@@ -9,8 +9,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.RUTA;
+import static java.lang.System.lineSeparator;
+import static java.nio.charset.StandardCharsets.*;
 
 /**
  * Esta clase devuelve true o false dependiendo de la respuesta del usuario para la creación de la Persona.
@@ -41,9 +44,9 @@ public class PersonaBinarioAlmacenarUseCase implements PersonaBinarioAlmacenarPo
                 try {
 
                     personaBinarioOutputDTOList.forEach(personaBinarioOutputDTO ->
-                            dataList.add(personaBinarioOutputDTO + System.lineSeparator()));
+                            dataList.add(personaBinarioOutputDTO + lineSeparator()));
 
-                    fileOutputStream.write(dataList.toString().getBytes(StandardCharsets.UTF_8));
+                    fileOutputStream.write(dataList.toString().getBytes(UTF_8));
                     fileOutputStream.close();
 
                 } catch (IOException e) {
