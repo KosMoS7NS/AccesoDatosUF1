@@ -1,24 +1,25 @@
-package com.ifp.UF1.application;
+package com.ifp.UF1.binario.application;
+
+import com.ifp.UF1.binario.application.port.PersonaBinarioCreatePort;
+import com.ifp.UF1.binario.domain.no_database.PersonaBinarioNoEntity;
+import com.ifp.UF1.binario.infrastructure.dto.input.PersonaBinarioInputDTO;
+import com.ifp.UF1.shared.port.PersonaMapperPort;
+import com.ifp.UF1.texto.infrastructure.dto.input.PersonaInputDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.ifp.UF1.application.port.PersonaCreatePort;
-import com.ifp.UF1.application.port.PersonaMapperPort;
-import com.ifp.UF1.infrastructure.dto.input.PersonaInputDTO;
-
-import static com.ifp.UF1.configuration.PersonaStaticConfig.RUTA;
+import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.*;
+import static com.ifp.UF1.shared.port.PersonaMapperPort.INSTANCE;
 
 
 /**
  * Clase con el método de creación de las Personas.
  */
 @Service
-public class PersonaCreateUseCase implements PersonaCreatePort {
+public class PersonaBinarioCreateUseCase implements PersonaBinarioCreatePort {
 
     /**
      * Se realiza un Scaner para capturar la información del usuario.
@@ -26,7 +27,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
      * Se instancia la clase PersonaInputDTO mediante un constructor con argumentos, en el cual se le pasa los atributos
      * anteriormente capturados.
      * <p>
-     * La lista de personaEntity guardara PersonaNoEntity con un mapeon de PersonaInputDTO. A continuación,
+     * La lista de personaEntity guardara PersonaBinarioNoEntity con un mapeon de PersonaInputDTO. A continuación,
      * se convierte la lista de personaEntity en un DTO de Salida mediante un Mapper, realizado en otro Caso de Uso.
      *
      * @return List
@@ -35,7 +36,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
     @Override
     public List createPersona() throws Exception {
         Scanner scanner = new Scanner(System.in);
-        List personaEntityList = new ArrayList<>();
+        List<PersonaBinarioNoEntity> personaBinarioNoEntityList = new ArrayList<>();
         int i = 1;
 
         try {
@@ -44,6 +45,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
             System.out.println("=====================================");
 
             do {
+                System.out.println("PERSONA: " + i);
 
                 System.out.println("Introduce tu nombre: ");
                 String nombre = scanner.next();
@@ -64,13 +66,13 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
                 System.out.println("=====================================");
 
 
-                personaEntityList.add(PersonaMapperPort.INSTANCE.personaEntity(
-                        new PersonaInputDTO(nombre, apellidos, ciudad, nacionalidad, edad)));
+                personaBinarioNoEntityList.add(INSTANCE.personaBinarioNoEntity(
+                        new PersonaBinarioInputDTO(nombre, apellidos, ciudad, nacionalidad, edad)));
 
                 i += 1;
 
             } while (i <= 3);
-            return PersonaMapperPort.INSTANCE.personaOutputDtoList(personaEntityList);
+            return INSTANCE.personaBinarioOutputDtoList(personaBinarioNoEntityList);
 
         } catch (Exception e) {
             throw new Exception("Introduce correctamente los datos");

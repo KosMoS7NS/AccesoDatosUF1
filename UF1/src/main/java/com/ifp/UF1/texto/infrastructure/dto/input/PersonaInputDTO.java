@@ -1,4 +1,4 @@
-package com.ifp.UF1.infrastructure.dto.input;
+package com.ifp.UF1.texto.infrastructure.dto.input;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

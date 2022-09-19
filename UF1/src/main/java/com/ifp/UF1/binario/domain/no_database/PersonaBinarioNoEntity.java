@@ -1,4 +1,4 @@
-package com.ifp.UF1.domain.no_database;
+package com.ifp.UF1.binario.domain.no_database;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonaNoEntity {
+public class PersonaBinarioNoEntity {
     private String nombre;
     private String apellidos;
     private String ciudad;

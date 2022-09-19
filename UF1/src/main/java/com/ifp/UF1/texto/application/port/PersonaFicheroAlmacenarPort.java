@@ -1,6 +1,6 @@
-package com.ifp.UF1.application.port;
+package com.ifp.UF1.texto.application.port;
 
-import com.ifp.UF1.infrastructure.dto.output.PersonaOutputDTO;
+import com.ifp.UF1.texto.infrastructure.dto.output.PersonaOutputDTO;
 
 import java.io.IOException;
 import java.util.List;

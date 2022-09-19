@@ -1,4 +1,4 @@
-package com.ifp.UF1.application;
+package com.ifp.UF1.texto.application;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ifp.UF1.shared.configuration.PersonaStaticConfig;
+import com.ifp.UF1.texto.application.port.PersonaFicheroAlmacenarPort;
 import org.springframework.stereotype.Service;
 
-import com.ifp.UF1.application.port.PersonaFicheroAlmacenarPort;
-import com.ifp.UF1.infrastructure.dto.output.PersonaOutputDTO;
+import com.ifp.UF1.texto.infrastructure.dto.output.PersonaOutputDTO;
 
-import static com.ifp.UF1.configuration.PersonaStaticConfig.*;
+import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.*;
 
 /**
  * Esta clase devuelve true o false dependiendo de la respuesta del usuario para la creación de la Persona.

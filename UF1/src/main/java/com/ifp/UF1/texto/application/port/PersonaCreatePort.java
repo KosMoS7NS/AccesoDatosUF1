@@ -1,4 +1,4 @@
-package com.ifp.UF1.application.port;
+package com.ifp.UF1.texto.application.port;
 
 import java.util.List;
 

@@ -1,21 +1,19 @@
-package com.ifp.UF1.application;
+package com.ifp.UF1.shared;
 
-import com.ifp.UF1.application.port.PersonaMenuPort;
-import com.ifp.UF1.configuration.PersonaStaticConfig;
+import com.ifp.UF1.shared.configuration.PersonaStaticConfig;
+import com.ifp.UF1.shared.port.PersonaMenuPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Scanner;
 
-import static com.ifp.UF1.configuration.PersonaStaticConfig.NOMBRE;
-import static com.ifp.UF1.configuration.PersonaStaticConfig.RUTA;
+import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.*;
 
 /**
  * Esta clase esta compuesta de un menú en el cual devuelve ciertos números que se utilizarán en el main para llamar
  * a otros métodos
  */
 @Service
-@Slf4j
 public class PersonaMenuUseCase implements PersonaMenuPort {
 
     /**
@@ -30,37 +28,52 @@ public class PersonaMenuUseCase implements PersonaMenuPort {
         System.out.println("=====================================");
         System.out.println("Introduce una opción: ");
 
-        System.out.println("1) Escribir - 3 MAX");
-        System.out.println("2) Leer");
+        System.out.println("1) Escribir fichero - 3 MAX");
+        System.out.println("2) Escribir binario - 3 MAX");
+        System.out.println("3) Leer fichero");
+        System.out.println("0) Salir");
 
         System.out.println("=====================================");
         respuesta = scanner.nextInt();
 
-        if (respuesta == 1 || respuesta == 2) {
+        if (respuesta == 1 || respuesta == 2 || respuesta == 3) {
             switch (respuesta) {
 
                 case 1:
                     break;
 
                 case 2:
+                    break;
+
+                case 3:
                     try {
                         System.out.println("Introduce el nombre del fichero: ");
                         RUTA = scanner.next();
 
                         System.out.println("=====================================");
 
-                        System.out.println("3) Leer todo el fichero");
-                        System.out.println("4) Leer una persona");
+                        System.out.println("4) Leer todo el fichero - TEXTO");
+                        System.out.println("5) Leer una persona - TEXTO");
+                        System.out.println("6) Leer todo el fichero - BINARIO");
+                        System.out.println("7) Leer una persona - BINARIO");
+                        System.out.println("0) Salir");
 
                         respuesta = scanner.nextInt();
                         System.out.println("=====================================");
 
-                        if (respuesta == 3) return respuesta;
-                        if (respuesta == 4) {
+                        if (respuesta == 4) return respuesta;
+                        if (respuesta == 5) {
+                            System.out.println("Introduce el nombre de la Persona: ");
+                            NOMBRE = scanner.next();
+                        }
+
+                        if (respuesta == 6) return respuesta;
+                        if (respuesta == 7) {
                             System.out.println("Introduce el nombre de la Persona: ");
                             NOMBRE = scanner.next();
 
                         } else return 0;
+
                         break;
 
                     } catch (Exception e) {
