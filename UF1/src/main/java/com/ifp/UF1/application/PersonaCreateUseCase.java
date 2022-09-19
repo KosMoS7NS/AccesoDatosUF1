@@ -19,7 +19,7 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
     PersonaRepository personaRepository;
 
     /**
-     * Se realiza un Escaner para capturar la información del usuario.
+     * Se realiza un Scaner para capturar la información del usuario.
      * <p>
      * Se instancia la clase PersonaInputDTO mediante un constructor con argumentos, en el cual se le pasa los atributos
      * anteriormente capturados.
@@ -31,33 +31,41 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
      */
 
     @Override
-    public PersonaOutputDTO createPersona() {
+    public PersonaOutputDTO createPersona() throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Introduce un ID: ");
-        Integer id = scanner.nextInt();
+        try {
+            System.out.println("Introduce el nombre del fichero: ");
+            PersonaStaticConfig.RUTA = scanner.next();
 
-        System.out.println("Introduce tu nombre: ");
-        String nombre = scanner.next();
+            System.out.println("Introduce un ID: ");
+            Integer id = scanner.nextInt();
 
-        scanner.nextLine();
-        System.out.println("Introduce tus apellidos: ");
-        String apellidos = scanner.nextLine();
+            System.out.println("Introduce tu nombre: ");
+            String nombre = scanner.next();
 
-        System.out.println("Introduce tu edad: ");
-        int edad = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("Introduce tus apellidos: ");
+            String apellidos = scanner.nextLine();
 
-        scanner.nextLine();
-        System.out.println("Introduce tu ciudad: ");
-        String ciudad = scanner.nextLine();
+            System.out.println("Introduce tu edad: ");
+            int edad = scanner.nextInt();
 
-        System.out.println("Introduce tu nacionalidad: ");
-        String nacionalidad = scanner.next();
+            scanner.nextLine();
+            System.out.println("Introduce tu ciudad: ");
+            String ciudad = scanner.nextLine();
 
-        PersonaInputDTO personaInputDTO = new PersonaInputDTO(id, nombre, apellidos, ciudad, nacionalidad, edad);
-        return PersonaMapper.INSTANCE.personaOutputDto(
-                personaRepository.save(PersonaMapper.INSTANCE.personaEntity(personaInputDTO)
-                ));
+            System.out.println("Introduce tu nacionalidad: ");
+            String nacionalidad = scanner.next();
+
+            PersonaInputDTO personaInputDTO = new PersonaInputDTO(id, nombre, apellidos, ciudad, nacionalidad, edad);
+            return PersonaMapper.INSTANCE.personaOutputDto(
+                    personaRepository.save(PersonaMapper.INSTANCE.personaEntity(personaInputDTO)
+                    ));
+
+        } catch (Exception e) {
+            throw new Exception("Introduce correctamente los datos");
+        }
 
     }
 }

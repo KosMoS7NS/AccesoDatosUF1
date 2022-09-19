@@ -24,8 +24,10 @@ public class PersonaMenuUseCase implements PersonaMenu {
 
         System.out.println("=====================================");
         respuesta = scanner.nextInt();
+
         if (respuesta == 1 || respuesta == 2) {
             switch (respuesta) {
+
                 case 1:
                     break;
 

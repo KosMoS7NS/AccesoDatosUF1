@@ -7,5 +7,5 @@ import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
  */
 public interface PersonaCreatePort {
 
-    PersonaOutputDTO createPersona();
+    PersonaOutputDTO createPersona() throws Exception;
 }

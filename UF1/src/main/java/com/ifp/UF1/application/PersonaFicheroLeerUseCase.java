@@ -23,35 +23,46 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeer {
 
     @Override
     public String leerFichero(String ruta) throws IOException {
-        FileReader fileReader = new FileReader(new File(ruta));
-        bufferedReader = new BufferedReader(fileReader);
+        try {
+            FileReader fileReader = new FileReader(new File(ruta));
+            bufferedReader = new BufferedReader(fileReader);
 
-        while ((lineaTextoFichero = bufferedReader.readLine()) != null)
-            totalLineasFichero += lineaTextoFichero + System.lineSeparator();
+            while ((lineaTextoFichero = bufferedReader.readLine()) != null)
+                totalLineasFichero += lineaTextoFichero + System.lineSeparator();
 
-        fileReader.close();
+            fileReader.close();
+
+        } catch (Exception e) {
+            throw new FileNotFoundException("No se ha encontrado la ruta del fichero");
+        }
         return totalLineasFichero;
     }
 
     @Override
     public List leerFicheroNombre(String ruta, String nombre) throws IOException {
-        FileReader fileReader = new FileReader(new File(ruta));
-        bufferedReader = new BufferedReader(fileReader);
-
         List personaList = new ArrayList<>();
 
-        while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
-            totalLineasFichero += lineaTextoFichero + System.lineSeparator();
-            String[] infoSplit = lineaTextoFichero.split("=|,");
+        try {
+            FileReader fileReader = new FileReader(new File(ruta));
+            bufferedReader = new BufferedReader(fileReader);
 
-            if (PersonaStaticConfig.NOMBRE.equalsIgnoreCase(infoSplit[3])) {
+            while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
                 totalLineasFichero += lineaTextoFichero + System.lineSeparator();
-                personaList.add(lineaTextoFichero + System.lineSeparator());
+                String[] infoSplit = lineaTextoFichero.split("=|,");
 
+                if (PersonaStaticConfig.NOMBRE.equalsIgnoreCase(infoSplit[3])) {
+                    totalLineasFichero += lineaTextoFichero + System.lineSeparator();
+                    personaList.add(lineaTextoFichero + System.lineSeparator());
+
+                }
             }
 
+            fileReader.close();
+
+        } catch (Exception e) {
+            throw new FileNotFoundException("No se ha encontrado la ruta del fichero");
         }
-        fileReader.close();
+
         return personaList;
     }
 }

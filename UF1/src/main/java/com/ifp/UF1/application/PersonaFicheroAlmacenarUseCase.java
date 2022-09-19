@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import com.ifp.UF1.configuration.PersonaStaticConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,7 @@ public class PersonaFicheroAlmacenarUseCase implements PersonaFicheroAlmacenar {
     @Override
     public boolean almacenarFichero(PersonaOutputDTO personaOutputDTO) throws IOException {
 	Scanner scanner = new Scanner(System.in);
-	File file = new File("Fichero.txt");
+	File file = new File(PersonaStaticConfig.RUTA);
 	FileWriter fileWriter = new FileWriter(file, true);
 
 	if (file.exists()) {
