@@ -44,9 +44,6 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
             System.out.println("=====================================");
 
             do {
-//                System.out.println("PERSONA " + i);
-//                System.out.println("Introduce un ID: ");
-//                Integer id = scanner.nextInt();
 
                 System.out.println("Introduce tu nombre: ");
                 String nombre = scanner.next();
