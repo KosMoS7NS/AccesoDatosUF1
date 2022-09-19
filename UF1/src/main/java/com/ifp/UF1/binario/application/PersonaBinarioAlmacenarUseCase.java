@@ -28,10 +28,10 @@ public class PersonaBinarioAlmacenarUseCase implements PersonaBinarioAlmacenarPo
     @Override
     public boolean almacenarBinario(List<PersonaBinarioOutputDTO> personaBinarioOutputDTOList) throws IOException {
         Scanner scanner = new Scanner(System.in);
+        List dataList = new ArrayList<>();
 
         File file = new File(RUTA);
         FileOutputStream fileOutputStream = new FileOutputStream(file, true);
-//        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file, true));
 
         if (file.exists()) {
             System.out.println("El fichero ya existe, ¿quiere continuar? ");
@@ -40,8 +40,10 @@ public class PersonaBinarioAlmacenarUseCase implements PersonaBinarioAlmacenarPo
             if (respuesta.equalsIgnoreCase("si")) {
                 try {
 
-                    fileOutputStream.write(personaBinarioOutputDTOList.toString().getBytes(StandardCharsets.UTF_8));
-//                    objectOutputStream.writeObject(personaBinarioOutputDTOList);
+                    personaBinarioOutputDTOList.forEach(personaBinarioOutputDTO ->
+                            dataList.add(personaBinarioOutputDTO + System.lineSeparator()));
+
+                    fileOutputStream.write(dataList.toString().getBytes(StandardCharsets.UTF_8));
                     fileOutputStream.close();
 
                 } catch (IOException e) {

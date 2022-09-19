@@ -35,21 +35,14 @@ public class PersonaBinarioLeerUseCase implements PersonaBinarioLeerPort {
     @Override
     public List leerBinario(String ruta) throws IOException, ClassNotFoundException {
         InputStream inputStream = new FileInputStream(new File(ruta));
-//        FileInputStream fileInputStream = new FileInputStream(new File(ruta));
-//        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        List personaData = new ArrayList<>();
 
         int content;
         while ((content = inputStream.read()) != -1)
-            personaList.add((char) content);
-//        while (fileInputStream.read() != -1) {
-//            personaList.add((char) fileInputStream.read());
-//            PersonaBinarioOutputDTO personaBinarioOutputDTO = (PersonaBinarioOutputDTO) objectInputStream.readObject();
-//            personaList.add(personaBinarioOutputDTO);
-//            String data = objectInputStream.readUTF();
-//            personaList.add(data);
-//        }
+            System.out.print((char) content);
+
         inputStream.close();
-        return personaList;
+        return personaData;
     }
 
     /**

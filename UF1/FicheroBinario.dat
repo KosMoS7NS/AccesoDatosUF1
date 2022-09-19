@@ -1,1 +1,4 @@
-[PersonaBinarioOutputDTO(nombre=fea, apellidos=fae, ciudad=fea, nacionalidad=fa, edad=3), PersonaBinarioOutputDTO(nombre=fae, apellidos=fae, ciudad=fae, nacionalidad=fa, edad=3), PersonaBinarioOutputDTO(nombre=fae, apellidos=fa, ciudad=fae, nacionalidad=fae, edad=3)]
+[PersonaBinarioOutputDTO(nombre=Daniel, apellidos=Guerrero Costa, ciudad=Madrid, nacionalidad=Spain, edad=34)
+, PersonaBinarioOutputDTO(nombre=Rafael, apellidos=Herrero Toledo, ciudad=Barcelona, nacionalidad=Rafael, edad=45)
+, PersonaBinarioOutputDTO(nombre=Rafael, apellidos=Gallardo Bucad, ciudad=Sevilla, nacionalidad=Spain, edad=54)
+]
