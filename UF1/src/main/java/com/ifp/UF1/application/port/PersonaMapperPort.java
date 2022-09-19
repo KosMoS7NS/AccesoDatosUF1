@@ -17,8 +17,8 @@ public interface PersonaMapperPort {
     PersonaMapperPort INSTANCE = Mappers.getMapper(PersonaMapperPort.class);
 
     PersonaEntity personaEntity(PersonaInputDTO personaInputDTO);
-//
-//    PersonaOutputDTO personaOutputDto(PersonaEntity personaEntity);
+
+    PersonaOutputDTO personaOutputDto(PersonaEntity personaEntity);
     List<PersonaEntity> personaEntityList(List<PersonaInputDTO> personaInputDTOList);
     List<PersonaOutputDTO> personaOutputDtoListEntity(List<PersonaEntity> personaEntityList);
     List<PersonaOutputDTO> personaOutputDtoList(List<PersonaInputDTO> personaInputDTOList);

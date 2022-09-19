@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.ifp.UF1.configuration.PersonaStaticConfig;
-import com.ifp.UF1.domain.PersonaEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,9 +37,10 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
      */
 
     @Override
-    public List<PersonaOutputDTO> createPersona() throws Exception {
+    public List createPersona() throws Exception {
         Scanner scanner = new Scanner(System.in);
         List personaEntityList = new ArrayList<>();
+        PersonaOutputDTO personaOutputDTO = new PersonaOutputDTO();
         int i = 1;
 
         try {
@@ -71,12 +71,13 @@ public class PersonaCreateUseCase implements PersonaCreatePort {
                 String nacionalidad = scanner.next();
                 System.out.println("=====================================");
 
+
                 personaEntityList.add(PersonaMapperPort.INSTANCE.personaEntity(
                         new PersonaInputDTO(id, nombre, apellidos, ciudad, nacionalidad, edad)));
 
                 i += 1;
 
-            } while (personaEntityList.size() < 3);
+            } while (i <= 3);
             return PersonaMapperPort.INSTANCE.personaOutputDtoListEntity(personaEntityList);
 
 //            return PersonaMapperPort.INSTANCE.personaOutputDto(

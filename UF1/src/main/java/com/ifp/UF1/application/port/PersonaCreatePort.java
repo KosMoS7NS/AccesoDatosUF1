@@ -1,7 +1,5 @@
 package com.ifp.UF1.application.port;
 
-import com.ifp.UF1.infrastructure.controller.dto.output.PersonaOutputDTO;
-
 import java.util.List;
 
 /**
@@ -9,5 +7,5 @@ import java.util.List;
  */
 public interface PersonaCreatePort {
 
-    List<PersonaOutputDTO> createPersona() throws Exception;
+    List createPersona() throws Exception;
 }

@@ -20,10 +20,10 @@ import static com.ifp.UF1.configuration.PersonaStaticConfig.*;
 @Service
 public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
 
+    private final List personaList = new ArrayList<>();
     private BufferedReader bufferedReader;
     private String lineaTextoFichero;
     private String totalLineasFichero = "";
-    private List personaList = new ArrayList<>();
 
     /**
      * @param ruta Ruta del fichero.txt
@@ -49,8 +49,7 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
     }
 
     /**
-     *
-     * @param ruta Ruta del fichero.txt
+     * @param ruta   Ruta del fichero.txt
      * @param nombre Nombre de la persona
      * @return List
      * @throws IOException
@@ -63,25 +62,11 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
             bufferedReader = new BufferedReader(fileReader);
 
             while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
-                totalLineasFichero += lineaTextoFichero + System.lineSeparator();
-//                String[] infoSplit = lineaTextoFichero.split("=");
-                String[] infoSplit = lineaTextoFichero.split("\\(|=|,");
-//                String[] infoSplit = lineaTextoFichero.split("=|,");
+                String[] infoSplit = lineaTextoFichero.split("=");
 
-                if (NOMBRE.equalsIgnoreCase(infoSplit[4])) {
-                    totalLineasFichero += lineaTextoFichero + System.lineSeparator();
-                    personaList.add(lineaTextoFichero);
-
-                }
-                System.out.println("PERSONA 0: " + infoSplit[0]);
-                System.out.println("PERSONA 1: " + infoSplit[1]);
-                System.out.println("PERSONA 2: " + infoSplit[2]);
-                System.out.println("PERSONA 3: " + infoSplit[3]);
-                System.out.println("PERSONA 4: " + infoSplit[4]);
-
+                if (infoSplit.length > 1 && NOMBRE.equalsIgnoreCase(infoSplit[2].substring(0, 1)))
+                    personaList.add(lineaTextoFichero + System.lineSeparator());
             }
-
-
             fileReader.close();
 
         } catch (Exception e) {

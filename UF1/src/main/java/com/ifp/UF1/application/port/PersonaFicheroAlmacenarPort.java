@@ -9,5 +9,5 @@ import java.util.List;
  * Puerto con el método de almacenar Personas en un fichero.txt
  */
 public interface PersonaFicheroAlmacenarPort {
-    boolean almacenarFichero(List<PersonaOutputDTO> personaOutputDTOList) throws IOException;
+        boolean almacenarFichero(List<PersonaOutputDTO> personaOutputDTOList) throws IOException;
 }
