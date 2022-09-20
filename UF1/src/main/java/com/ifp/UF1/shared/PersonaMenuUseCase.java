@@ -61,28 +61,19 @@ public class PersonaMenuUseCase implements PersonaMenuPort {
                         respuesta = scanner.nextInt();
                         System.out.println("=====================================");
 
-                        if (respuesta == 4) return respuesta;
-                        if (respuesta == 5) {
+                        if (respuesta == 4 || respuesta == 6) return respuesta;
+                        if (respuesta == 5 || respuesta == 7) {
                             System.out.println("Introduce el nombre de la Persona: ");
                             NOMBRE = scanner.next();
+                            return respuesta;
+
                         }
-
-                        if (respuesta == 6) return respuesta;
-                        if (respuesta == 7) {
-                            System.out.println("Introduce el nombre de la Persona: ");
-                            NOMBRE = scanner.next();
-
-                        } else return 0;
 
                         break;
 
                     } catch (Exception e) {
                         throw new Exception("Nombre no válido");
                     }
-
-                default:
-                    break;
-
             }
 
         } else return 0;
