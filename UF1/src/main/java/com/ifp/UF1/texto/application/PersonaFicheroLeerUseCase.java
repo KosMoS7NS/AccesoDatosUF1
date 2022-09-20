@@ -30,13 +30,12 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
      */
     @Override
     public List leerFichero(String ruta) throws IOException {
-        FileReader fileReader = new FileReader(new File(ruta));
-        bufferedReader = new BufferedReader(fileReader);
+        bufferedReader = new BufferedReader(new FileReader(new File(ruta)));
 
         while ((lineaTextoFichero = bufferedReader.readLine()) != null)
             personaList.add(System.lineSeparator() + lineaTextoFichero);
 
-        fileReader.close();
+        bufferedReader.close();
         return personaList;
     }
 
@@ -48,9 +47,7 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
      */
     @Override
     public List leerFicheroNombre(String ruta, String nombre) throws IOException {
-
-        FileReader fileReader = new FileReader(new File(ruta));
-        bufferedReader = new BufferedReader(fileReader);
+        bufferedReader = new BufferedReader(new FileReader(new File(ruta)));
 
         while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
             String[] infoSplit = lineaTextoFichero.split("=");
@@ -60,7 +57,7 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
                 personaList.add(System.lineSeparator() + lineaTextoFichero);
 
         }
-        fileReader.close();
+        bufferedReader.close();
         return personaList;
     }
 }

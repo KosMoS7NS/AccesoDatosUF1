@@ -1,4 +1,3 @@
-[PersonaBinarioOutputDTO(nombre=Daniel, apellidos=Guerrero Costa, ciudad=Madrid, nacionalidad=Spain, edad=34)
-, PersonaBinarioOutputDTO(nombre=Rafael, apellidos=Herrero Toledo, ciudad=Barcelona, nacionalidad=Rafael, edad=45)
-, PersonaBinarioOutputDTO(nombre=Rafael, apellidos=Gallardo Bucad, ciudad=Sevilla, nacionalidad=Spain, edad=54)
-]
+PersonaBinarioOutputDTO(nombre=Daniel, apellidos=Guerrero Costa, ciudad=Madrid, nacionalidad=Spain, edad=34)
+PersonaBinarioOutputDTO(nombre=Arturo, apellidos=Herrero Montenegro, ciudad=Barcelona, nacionalidad=Spain, edad=23)
+PersonaBinarioOutputDTO(nombre=Arturo, apellidos=Gallardo Costa, ciudad=Sevilla, nacionalidad=Spain, edad=34)

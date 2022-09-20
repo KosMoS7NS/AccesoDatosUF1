@@ -10,7 +10,7 @@ import java.util.List;
  * Puerto con el método de almacenar Personas en un fichero.txt
  */
 public interface PersonaBinarioAlmacenarPort {
-//        boolean almacenarBinario(List<PersonaOutputDTO> personaOutputDTOList) throws IOException;
 
         boolean almacenarBinario(List<PersonaBinarioOutputDTO> personaBinarioOutputDTOList) throws IOException;
+
 }

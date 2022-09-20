@@ -70,7 +70,7 @@ public class Uf1Application implements CommandLineRunner {
             case 4 -> System.out.println(personaFicheroLeerPort.leerFichero(RUTA));
             case 5 -> System.out.println(personaFicheroLeerPort.leerFicheroNombre(RUTA, NOMBRE));
             case 6 -> System.out.println(personaBinarioLeerPort.leerBinario(RUTA));
-            case 7 -> System.out.println(personaFicheroLeerPort.leerFicheroNombre(RUTA, NOMBRE));
+            case 7 -> System.out.println(personaBinarioLeerPort.leerFicheroNombre(RUTA, NOMBRE));
         }
     }
 }

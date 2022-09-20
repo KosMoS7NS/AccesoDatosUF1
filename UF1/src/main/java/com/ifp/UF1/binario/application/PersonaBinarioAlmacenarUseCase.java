@@ -5,7 +5,6 @@ import com.ifp.UF1.binario.infrastructure.dto.output.PersonaBinarioOutputDTO;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +12,7 @@ import java.util.stream.Collectors;
 
 import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.RUTA;
 import static java.lang.System.lineSeparator;
-import static java.nio.charset.StandardCharsets.*;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * Esta clase devuelve true o false dependiendo de la respuesta del usuario para la creación de la Persona.
@@ -28,8 +27,10 @@ public class PersonaBinarioAlmacenarUseCase implements PersonaBinarioAlmacenarPo
      * @return boolean
      * @throws IOException
      */
+
     @Override
     public boolean almacenarBinario(List<PersonaBinarioOutputDTO> personaBinarioOutputDTOList) throws IOException {
+
         Scanner scanner = new Scanner(System.in);
         List dataList = new ArrayList<>();
 
@@ -46,7 +47,11 @@ public class PersonaBinarioAlmacenarUseCase implements PersonaBinarioAlmacenarPo
                     personaBinarioOutputDTOList.forEach(personaBinarioOutputDTO ->
                             dataList.add(personaBinarioOutputDTO + lineSeparator()));
 
-                    fileOutputStream.write(dataList.toString().getBytes(UTF_8));
+                    fileOutputStream.write((dataList.stream()
+                            .map(Object::toString)
+                            .collect(Collectors.joining(", ")) + lineSeparator())
+                            .getBytes(UTF_8));
+
                     fileOutputStream.close();
 
                 } catch (IOException e) {

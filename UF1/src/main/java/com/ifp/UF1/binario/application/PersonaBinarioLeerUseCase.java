@@ -1,6 +1,7 @@
 package com.ifp.UF1.binario.application;
 
 import com.ifp.UF1.binario.application.port.PersonaBinarioLeerPort;
+import com.ifp.UF1.binario.infrastructure.dto.output.PersonaBinarioOutputDTO;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -20,8 +21,6 @@ import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.NOMBRE;
 public class PersonaBinarioLeerUseCase implements PersonaBinarioLeerPort {
 
     private final List personaList = new ArrayList<>();
-    private BufferedReader bufferedReader;
-    private String lineaTextoFichero;
 
     /**
      * @param ruta Ruta del fichero.dat
@@ -48,10 +47,10 @@ public class PersonaBinarioLeerUseCase implements PersonaBinarioLeerPort {
      * @return List
      * @throws IOException
      */
-    public List leerFicheroNombre(String ruta, String nombre) throws IOException {
-
-        FileReader fileReader = new FileReader(new File(ruta));
-        bufferedReader = new BufferedReader(fileReader);
+    @Override
+    public List leerFicheroNombre(String ruta, String nombre) throws IOException, ClassNotFoundException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(ruta)));
+        String lineaTextoFichero = "";
 
         while ((lineaTextoFichero = bufferedReader.readLine()) != null) {
             String[] infoSplit = lineaTextoFichero.split("=");
@@ -61,8 +60,9 @@ public class PersonaBinarioLeerUseCase implements PersonaBinarioLeerPort {
                 personaList.add(System.lineSeparator() + lineaTextoFichero);
 
         }
-        fileReader.close();
 
+        bufferedReader.close();
         return personaList;
+
     }
 }
