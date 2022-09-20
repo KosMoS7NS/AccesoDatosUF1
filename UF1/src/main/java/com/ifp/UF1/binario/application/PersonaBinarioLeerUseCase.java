@@ -1,15 +1,11 @@
 package com.ifp.UF1.binario.application;
 
 import com.ifp.UF1.binario.application.port.PersonaBinarioLeerPort;
-import com.ifp.UF1.binario.domain.no_database.PersonaBinarioNoEntity;
-import com.ifp.UF1.binario.infrastructure.dto.output.PersonaBinarioOutputDTO;
-import com.ifp.UF1.texto.infrastructure.dto.output.PersonaOutputDTO;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.NOMBRE;
 
@@ -28,17 +24,22 @@ public class PersonaBinarioLeerUseCase implements PersonaBinarioLeerPort {
     private String lineaTextoFichero;
 
     /**
-     * @param ruta Ruta del fichero.txt
+     * @param ruta Ruta del fichero.dat
      * @return List
      * @throws IOException
      */
     @Override
-    public void leerBinario(String ruta) throws IOException, ClassNotFoundException {
+    public List leerBinario(String ruta) throws IOException, ClassNotFoundException {
         InputStream inputStream = new FileInputStream(new File(ruta));
-
         int content;
-        while ((content = inputStream.read()) != -1) System.out.print((char) content);
+        String data = "";
+
+        while ((content = inputStream.read()) != -1) data += (char) content;
+        personaList.add(data);
+
         inputStream.close();
+        return personaList;
+
     }
 
     /**

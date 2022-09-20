@@ -4,5 +4,5 @@ import java.io.IOException;
 import java.util.List;
 
 public interface PersonaBinarioLeerPort {
-    void leerBinario(String ruta) throws IOException, ClassNotFoundException;
+    List leerBinario(String ruta) throws IOException, ClassNotFoundException;
 }
