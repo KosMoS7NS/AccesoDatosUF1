@@ -12,8 +12,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import lombok.extern.slf4j.Slf4j;
-
 import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.*;
 
 
@@ -54,7 +52,6 @@ public class Uf1Application implements CommandLineRunner {
     PersonaMenuPort personaMenuPort;
 
     /**
-     *
      * @param args
      */
     public static void main(String[] args) {
