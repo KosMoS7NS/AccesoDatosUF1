@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Esta es la entidad Persona, con anotaciones que permiten la creacion de getters. setters. constructores vacios y
- * con argumentos.
+ * Esta es la entidad PersonaBinario, con anotaciones que permiten la creacion de getters. setters. constructores vacios
+ * y con argumentos.
  */
 @Data
 @AllArgsConstructor

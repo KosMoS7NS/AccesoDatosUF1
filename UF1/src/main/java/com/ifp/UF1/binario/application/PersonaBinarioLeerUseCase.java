@@ -42,8 +42,8 @@ public class PersonaBinarioLeerUseCase implements PersonaBinarioLeerPort {
     }
 
     /**
-     * @param ruta   Ruta del fichero.txt
-     * @param nombre Nombre de la persona
+     * @param ruta Ruta del fichero.dat
+     * @param nombre Nombre de la persona a buscar en el fichero.dat
      * @return List
      * @throws IOException
      */

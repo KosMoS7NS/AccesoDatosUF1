@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Puerto compouesto por dos métodos.
+ * Puerto compuesto por dos métodos.
  * <p>
  * EL primer método leerFichero devuelve una lista con todas las personas del fichero.txt
  * <p>
@@ -12,8 +12,21 @@ import java.util.List;
  */
 public interface PersonaFicheroLeerPort {
 
+    /**
+     *
+     * @param ruta Ruta del fichero.txt
+     * @return List
+     * @throws IOException
+     */
     List leerFichero(String ruta) throws IOException;
 
+    /**
+     *
+     * @param ruta Ruta del fichero.txt
+     * @param nombre Nombre a buscar en el fichero.txt
+     * @return List
+     * @throws IOException
+     */
     List leerFicheroNombre(String ruta, String nombre) throws IOException;
 
 }

@@ -40,8 +40,8 @@ public class PersonaFicheroLeerUseCase implements PersonaFicheroLeerPort {
     }
 
     /**
-     * @param ruta   Ruta del fichero.txt
-     * @param nombre Nombre de la persona
+     * @param ruta Ruta del fichero.txt
+     * @param nombre Nombre de la persona a buscar en el fichero.txt
      * @return List
      * @throws IOException
      */

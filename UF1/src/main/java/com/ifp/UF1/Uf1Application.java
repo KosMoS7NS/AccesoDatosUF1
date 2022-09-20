@@ -22,13 +22,14 @@ import static com.ifp.UF1.shared.configuration.PersonaStaticConfig.*;
  * <p>
  * PersonaBinarioNoEntity es referenciada como Entity, para demostrar como se organizaría el proyecto con una BBDD
  * <p>
- * Las interfaces son referenciadas como ports.
+ * Las interfaces son referenciadas como Ports.
  * <p>
- * Las clases con métodos son referencias como use case.
+ * Las clases con métodos son referencias como Use Case.
  * <p>
  * No se utilizan controladores con peticiones POST/GET ya que no es el objetivo de este ejercicio.
+ * <p>
+ * @author Daniel Díez Miguel
  */
-@Slf4j
 @SpringBootApplication
 public class Uf1Application implements CommandLineRunner {
 
@@ -52,13 +53,18 @@ public class Uf1Application implements CommandLineRunner {
     @Autowired
     PersonaMenuPort personaMenuPort;
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         SpringApplication.run(Uf1Application.class, args);
     }
 
     /**
-     * Se muesta en los logs, una lista con la información de la Persona si el fichero no existe.
-     * Se controla el metodo con una excepcion por si hay algun fallo en la introducción de datos.
+     * Se muesta una lista con la información de la Persona si el fichero existe.
+     * <p>
+     * Se controla el metodo con una excepcion.
      *
      * @throws Exception
      */

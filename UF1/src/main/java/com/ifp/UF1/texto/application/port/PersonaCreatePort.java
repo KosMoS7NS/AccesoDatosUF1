@@ -7,5 +7,10 @@ import java.util.List;
  */
 public interface PersonaCreatePort {
 
+    /**
+     *
+     * @return List
+     * @throws Exception
+     */
     List createPersona() throws Exception;
 }
